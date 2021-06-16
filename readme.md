@@ -1,4 +1,4 @@
-# Node Mew
+# Node Begin
 
 This is an auxiliary app. The project that aims to setup the Node development automatically. The following are the basic setup configurations that will be installed:
 
