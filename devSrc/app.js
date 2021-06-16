@@ -11,7 +11,7 @@ module.exports = async (installOpt) => {
   const optN = installOpt.name;
 
   const settings = {
-    configs,
+    configs: devConfigs,
     uninstall: false,
     all: false,
   };
@@ -35,15 +35,31 @@ module.exports = async (installOpt) => {
     process.exit();
   }
 
-  const { configs, uninstall, all } = settings;
+  const { configs, uninstall } = settings;
   const results = [];
-  for (let i = 0; i < devConfigs.length; i += 1) {
+
+  for (let i = 0; i < configs.length; i += 1) {
     const config = configs[i];
 
-    process.stdout.write(`Installing ${config.name}...`);
-    const result = await install(settings.devConfigs[i], uninstall);
+    const action = !uninstall ? 'Install' : 'Uninstall';
+    // eslint-disable-next-line no-console
+    console.clear();
+    process.stdout.clearLine(0);
+    process.stdout.cursorTo(0);
+    process.stdout.write(
+      `${action}ation progress: ${
+        (i / configs.length) * 100
+      }% || ${action}ing ${config.name}...`
+    );
+    const result = await install(config, uninstall);
     results.push(result);
+
+    if (i === configs.length - 1) {
+      process.stdout.clearLine();
+      process.stdout.cursorTo(0);
+      process.stdout.write(`${action} progress: $100% || DONE!\n`);
+    }
   }
 
-  process.stdout.write(results);
+  console.log(results);
 };

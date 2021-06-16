@@ -9,10 +9,9 @@ const availableDep = JSON.parse(
 );
 const depNames = availableDep.map((dep) => dep.name);
 
-// if (!installOpt) {
-//   installOpt = { name: 'default' };
-// } else 
-if (installOpt === '-a') {
+if (!installOpt) {
+  installOpt = { name: 'default' };
+} else if (installOpt === '-a') {
   installOpt = { name: 'all' };
 } else if (installOpt === '-u') {
   installOpt = { name: 'uninstall' };
@@ -24,7 +23,7 @@ if (installOpt === '-a') {
     }
     return false;
   });
-  
+
   // If no custom dependencies are specified
   if (devDep.length === 0) {
     process.stdout.write('Custom dependencies are not specified\n');
