@@ -1,11 +1,18 @@
 {
-  "name": "starting-setup-v2",
+  "name": "node-mew",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src",
-    "dev": "nodemon --exec babel-node src"
+    "build": "webpack",
+    "postinstall": "npm run build",
+    "pretest": "cowsay \"running tests don't panic\"",
+    "test": "jest --coverage",
+    "prestart": "npm run build",
+    "start": "node ./dist/main.js",
+    "dev:start": "cls && nodemon --exec babel-node ./src",
+    "dev:coverage": "",
+    "dev:test": "jest --watchAll"
   },
   "author": "",
   "license": "ISC",

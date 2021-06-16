@@ -2,6 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const install = require("./install");
+const addScripts = require("./addScripts");
 
 const devConfigs = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "configs", "dev.config.json"))
@@ -18,7 +19,7 @@ module.exports = async (installOpt) => {
 
   // The option "all" install all configs from devConfigs
   if (optN === "default") {
-    const defaultConfigs = ["eslint", "prettier"];
+    const defaultConfigs = ["eslint", "prettier", "nodemon"];
     settings.configs = devConfigs.filter((config) =>
       defaultConfigs.includes(config.name)
     );
@@ -35,7 +36,7 @@ module.exports = async (installOpt) => {
     process.exit();
   }
 
-  const { configs, uninstall } = settings;
+  const { configs, uninstall, all } = settings;
   const action = !uninstall ? "Install" : "Uninstall";
   const results = [];
 
@@ -59,6 +60,10 @@ module.exports = async (installOpt) => {
       process.stdout.cursorTo(0);
       process.stdout.write(`${action} progress: $100% || DONE!\n`);
     }
+  }
+
+  if (all) {
+    addScripts();
   }
 
   //   console.log(results);
