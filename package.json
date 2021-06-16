@@ -14,7 +14,20 @@
     "dev:coverage": "",
     "dev:test": "jest --watchAll"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blitzdex27/node-begin.git"
+  },
+  "author": "dexter",
+  "keywords": [
+    "node",
+    "development",
+    "nodemon",
+    "prettier",
+    "webpack",
+    "eslint",
+    "babel"
+  ],
   "license": "ISC",
   "devDependencies": {
     "cowsay": "^1.5.0"

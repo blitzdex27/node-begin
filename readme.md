@@ -34,7 +34,7 @@ Also, when you chose to install all configs, your package.json scripts will be m
 
 # eslint
 
-Install eslit dependency:
+Install eslint dependency:
 
 > npm install -D eslint
 > npx eslint --init
@@ -67,19 +67,20 @@ Create a file named:
 
 # prettier
 
-npm install -D prettier eslint-config-prettier eslint-plugin-prettier
+Install prettier dependencies to work with eslint:
 
-install prettier extension
+> npm install -D prettier eslint-config-prettier eslint-plugin-prettier
 
-from settings, choose ‘Prettier - Code formatter’ as default formatter
+From settings, choose ‘Prettier - Code formatter’ as default formatter.
 
-create a file name “.prettierrc” and enter the following:
-.prettierrc
+Create a file in the root of your project directory named:
+
+> .prettierrc
 
 ```javascript
 {
-"printWidth": 100,
-"singleQuote": true
+  "printWidth": 100,
+  "singleQuote": true
 }
 ```
 
@@ -87,12 +88,13 @@ create a file name “.prettierrc” and enter the following:
 
 npm install -D @babel/core @babel/preset-env babel-loader @babel/node
 
-To make babel know what rules it should follow in compiling JS:
-Make a file called “.babelrc”
+Create a file in the root of your project directory named:
+
+> .babelrc
 
 ```javascript
 {
-"presets": ["@babel/presets-env"]
+  "presets": ["@babel/presets-env"]
 }
 ```
 
@@ -121,13 +123,19 @@ From the “package.json” file add a property “jest”:
 
 # webpack
 
-- npm install -D webpack webpack-cli webpack-node-externals
-- npm install regeneration-runtime
-- webpack.config.js:
+Install webpack dependencies
 
-const nodeExternals = require("webpack-node-externals");
+> npm install -D webpack webpack-cli webpack-node-externals
+
+> npm install regeneration-runtime
+
+Create a file in the root of your project directory named:
+
+> webpack.config.js:
 
 ```javascript
+const nodeExternals = require("webpack-node-externals");
+
 module.exports = {
   target: "node",
   mode: "production",
@@ -150,6 +158,16 @@ module.exports = {
 };
 ```
 
-- package.json scripts: "build": "webpack"
-- On your JS files, add "require('regeneration-runtime')" on top of your code
-- Done. Once you run the build script, the compressed file will be located on the "dist" directory, short for distribution.
+Modify thr package.json scripts:
+
+```javascript
+"build": "webpack"
+```
+
+On your JS files, add the following on top of your code:
+
+```javascript
+require("regeneration-runtime");
+```
+
+Done. Once you run the build script, the compressed file will be located on the "dist" directory, short for distribution.
