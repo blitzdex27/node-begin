@@ -3,7 +3,7 @@ const path = require('path');
 const cp = require('child_process');
 
 module.exports = (action) =>
-  new Promise((resolve, reject) => {
+  new Promise((resolve) => {
     const prereqInst = cp.spawn('npm.cmd', [action, 'regenerator-runtime']);
 
     const index = fs.readFileSync(
