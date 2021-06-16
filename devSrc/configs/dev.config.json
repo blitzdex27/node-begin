@@ -1,0 +1,32 @@
+[
+  {
+    "name": "eslint",
+    "config": ".eslintrc.json",
+    "dependencies": ["eslint", "eslint-config-airbnb-base"]
+  },
+  {
+    "name": "prettier",
+    "config": ".prettierrc",
+    "dependencies": [
+      "prettier",
+      "eslint-config-prettier",
+      "eslint-plugin-prettier",
+      "eslint-plugin-import"
+    ]
+  },
+  {
+    "name": "babel",
+    "config": ".babelrc",
+    "dependencies": [
+      "@babel/core",
+      "@babel/preset-env",
+      "babel-loader",
+      "@babel/node"
+    ]
+  },
+  {
+    "name": "webpack",
+    "config": "webpack.config.js",
+    "dependencies": ["webpack", "webpack-cli", "webpack-node-externals"]
+  }
+]
