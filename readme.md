@@ -34,10 +34,16 @@ Also, when you chose to install all configs, your package.json scripts will be m
 
 # eslint
 
-npm install -D eslint
-npx eslint --init
+Install eslit dependency:
 
-file: .eslintrc.json
+> npm install -D eslint
+> npx eslint --init
+
+Create a file named:
+
+> .eslintrc.json
+
+```javascript
 {
 "env": {
 "browser": true,
@@ -57,6 +63,7 @@ file: .eslintrc.json
 },
 "rules": {}
 }
+```
 
 # prettier
 
@@ -68,10 +75,13 @@ from settings, choose ‘Prettier - Code formatter’ as default formatter
 
 create a file name “.prettierrc” and enter the following:
 .prettierrc
+
+```javascript
 {
 "printWidth": 100,
 "singleQuote": true
 }
+```
 
 # babel
 
@@ -79,9 +89,12 @@ npm install -D @babel/core @babel/preset-env babel-loader @babel/node
 
 To make babel know what rules it should follow in compiling JS:
 Make a file called “.babelrc”
+
+```javascript
 {
 "presets": ["@babel/presets-env"]
 }
+```
 
 To start using babel
 
@@ -97,11 +110,14 @@ To also make it work with “jest”:
 > import "regenerator-runtime/runtime";
 
 From the “package.json” file add a property “jest”:
+
+```javascript
 "jest": {
 "setupFiles": [
 "./src/jest-setup.js"
 ]
 }
+```
 
 # webpack
 
@@ -111,17 +127,17 @@ From the “package.json” file add a property “jest”:
 
 const nodeExternals = require("webpack-node-externals");
 
+```javascript
 module.exports = {
-target: "node",
-mode: "production",
-externals: [nodeExternals()],
-entry: "./src/index.js",
-module: {
-rules: [
-{
-test: /\.js$/,
-exclude: /(node_modules)/,
-
+  target: "node",
+  mode: "production",
+  externals: [nodeExternals()],
+  entry: "./src/index.js",
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
           options: {
@@ -130,9 +146,9 @@ exclude: /(node_modules)/,
         },
       },
     ],
-
-},
+  },
 };
+```
 
 - package.json scripts: "build": "webpack"
 - On your JS files, add "require('regeneration-runtime')" on top of your code
