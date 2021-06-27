@@ -63,7 +63,7 @@ module.exports = async (installOpt) => {
   }
 
   if (all) {
-    addScripts();
+    setTimeout(addScripts, 2000)
   }
 
   //   console.log(results);
