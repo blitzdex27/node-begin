@@ -2,7 +2,6 @@
 const fs = require("fs");
 const path = require("path");
 const install = require("./install");
-const addScripts = require("./addScripts");
 
 const devConfigs = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "configs", "dev.config.json"))
@@ -60,10 +59,6 @@ module.exports = async (installOpt) => {
       process.stdout.cursorTo(0);
       process.stdout.write(`${action} progress: $100% || DONE!\n`);
     }
-  }
-
-  if (all) {
-    setTimeout(addScripts, 2000)
   }
 
   //   console.log(results);

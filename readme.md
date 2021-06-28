@@ -17,6 +17,13 @@ The 'devSrc' directory is the heart of this application.
 - Copy the 'devSrc' into the root of your project
 - On your terminal run "node devSrc"
 
+# Quickstart
+
+For common users:
+
+> node devSrc -a
+> node devSrc -s
+
 # Options
 
 Running "node devSrc" will install default set of configurations. To install different configurations refer to the list below:
@@ -24,7 +31,8 @@ Running "node devSrc" will install default set of configurations. To install dif
 - Default: node devSrc
 - All configs: node devSrc -a
 - Custom: node devSrc -c configNames (e.g. node devSrc -c nodemon eslint)
-- Uninstall: node devSrc -a
+- Uninstall: node devSrc -u
+- Add scripts: node devSrc -s
 
 Note that when webpack is installed, your index.js from ./src folder will have "require('regeneration-runtime)" declaration on top of your code. It will also install that that npm in your production dependencies. This is needed to make the webpack output file to run appropriately.
 
