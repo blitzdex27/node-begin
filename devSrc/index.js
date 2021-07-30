@@ -37,6 +37,9 @@ if (!installOpt) {
 
 if (installOpt === "-s") {
   addScripts();
+} else if (installOpt === "-as") {
+  addScripts();
+  app(installOpt);
 } else {
   app(installOpt);
 }
