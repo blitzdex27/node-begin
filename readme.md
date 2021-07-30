@@ -8,7 +8,7 @@ This is an auxiliary app. The project that aims to setup the Node development au
 - babel
 - webpack
 
-# How to use
+## How to use
 
 The 'devSrc' directory is the heart of this application.
 
@@ -17,14 +17,17 @@ The 'devSrc' directory is the heart of this application.
 - Copy the 'devSrc' into the root of your project
 - On your terminal run "node devSrc"
 
-# Quickstart
+## Quickstart
 
-For common users:
+For common users, this will install nodemon, prettier, and eslint:
 
-> node devSrc -a
-> node devSrc -s
+> node devSrc
 
-# Options
+For intermediate users, you can install all configurations and add package.json scripts:
+
+> node devSrc -as
+
+## Options
 
 Running "node devSrc" will install default set of configurations. To install different configurations refer to the list below:
 
@@ -38,9 +41,9 @@ Note that when webpack is installed, your index.js from ./src folder will have "
 
 Also, when you chose to install all configs, your package.json scripts will be modified to a common scripts setup.
 
-## Manual setup of configurations
+# Manual setup of configurations
 
-# eslint
+## eslint
 
 Install eslint dependency:
 
@@ -73,7 +76,7 @@ Create a file named:
 }
 ```
 
-# prettier
+## prettier
 
 Install prettier dependencies to work with eslint:
 
@@ -92,7 +95,7 @@ Create a file in the root of your project directory named:
 }
 ```
 
-# babel
+## babel
 
 npm install -D @babel/core @babel/preset-env babel-loader @babel/node
 
@@ -129,7 +132,7 @@ From the “package.json” file add a property “jest”:
 }
 ```
 
-# webpack
+## webpack
 
 Install webpack dependencies
 
