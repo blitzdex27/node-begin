@@ -10,14 +10,15 @@ This is an auxiliary app. The project that aims to setup the Node development au
 
 ## How to use
 
-The 'devSrc' directory is the heart of this application.
+Add the app into your project root directory
 
-- Create your own project directory
-- Initialize npm
-- Copy the 'devSrc' into the root of your project
-- On your terminal run "node devSrc"
+```npx degit blitzdex27/node-begin/devSrc```
 
-## Quickstart
+Run the app (make sure you have npm initialized on your project)
+
+```node devSrc```
+
+Then you can safely delete the `devSrc` directory.
 
 For common users, this will install nodemon, prettier, and eslint:
 
